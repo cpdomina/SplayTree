@@ -29,7 +29,7 @@ import java.util.NoSuchElementException;
 import java.util.Stack;
 
 /**
- * Top-Down Splay Tree implementation.
+ * Top-Down Splay Tree implementation (http://en.wikipedia.org/wiki/Splay_tree).
  * Largely based on the implementation by Danny Sleator <sleator@cs.cmu.edu>, available at http://www.link.cs.cmu.edu/splay/ (public domain).
  * Cleaned & refactored code, added generics, builders, iterator, and a couple of minor performance improvements.
  * 
