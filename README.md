@@ -1,8 +1,10 @@
 Splay Tree
 ==========
 
-Top-Down [Splay Tree](http://en.wikipedia.org/wiki/Splay_tree) Java implementation.
+Top-Down [Splay Tree](http://en.wikipedia.org/wiki/Splay_tree) Java implementation. Splay Trees are self-adjusting binary search trees with the additional property that recently accessed elements are quickly retrieved.
+
 Largely based on the implementation by [Danny Sleator](http://www.link.cs.cmu.edu/splay/), available on public domain.
+
 Cleaned & refactored code, added generics, builders, iterator, and a couple of minor performance improvements.
 
 ### Usage
