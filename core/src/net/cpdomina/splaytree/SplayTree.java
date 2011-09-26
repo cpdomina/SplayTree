@@ -24,16 +24,20 @@
  */
 package net.cpdomina.splaytree;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.Stack;
+
 /**
  * Top-Down Splay Tree implementation.
  * Largely based on the implementation by Danny Sleator <sleator@cs.cmu.edu>, available at http://www.link.cs.cmu.edu/splay/ (public domain).
- * Cleaned & refactored code, added generics, builders, and a couple of minor performance improvements.
+ * Cleaned & refactored code, added generics, builders, iterator, and a couple of minor performance improvements.
  * 
  * @author Pedro Oliveira (http://www.cpdomina.net)
  *
  * @param <T>
  */
-public class SplayTree<T extends Comparable<T>> {
+public class SplayTree<T extends Comparable<T>> implements Iterable<T> {
 
 	private BinaryNode root;
 	private final BinaryNode aux;
@@ -174,6 +178,13 @@ public class SplayTree<T extends Comparable<T>> {
 		return root == null;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Iterable#iterator()
+	 */
+	public Iterator<T> iterator() {
+		return new SplayTreeIterator();
+	}
+
 	/**
 	 * Internal method to perform a top-down splay.
 	 * If the element is in the tree, then the {@link BinaryNode} containing that element becomes the root. 
@@ -222,6 +233,13 @@ public class SplayTree<T extends Comparable<T>> {
 		root = t;
 	}
 
+
+	/**
+	 * {@link SplayTree} internal node
+	 * 
+	 * @author Pedro Oliveira
+	 *
+	 */
 	private class BinaryNode {
 
 		public final T key;          // The data in the node
@@ -232,6 +250,46 @@ public class SplayTree<T extends Comparable<T>> {
 			key = theKey;
 			left = right = null;
 		}
+	}
+
+	/**
+	 * Stack-based {@link SplayTree} iterator
+	 * @author Pedro Oliveira
+	 *
+	 */
+	private class SplayTreeIterator implements Iterator<T> {
+
+		private final Stack<BinaryNode> nodes;
+
+		public SplayTreeIterator() {
+			nodes = new Stack<BinaryNode>();
+			pushLeft(root);
+		}
+
+		public boolean hasNext() {
+			return !nodes.isEmpty();
+		}
+
+		public T next() {
+			BinaryNode node = nodes.pop();
+			if(node != null) {
+				pushLeft(node.right);
+				return node.key;
+			}
+			throw new NoSuchElementException();
+		}
+
+		public void remove() {
+			throw new UnsupportedOperationException();
+		}
+
+		private void pushLeft(BinaryNode node) {
+			while (node != null) {
+				nodes.push(node);
+				node = node.left;
+			}
+		}
+
 	}
 
 }
