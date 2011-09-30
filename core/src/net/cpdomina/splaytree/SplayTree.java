@@ -33,7 +33,7 @@ import java.util.Stack;
  * Largely based on the implementation by Danny Sleator <sleator@cs.cmu.edu>, available at http://www.link.cs.cmu.edu/splay/ (public domain).
  * Cleaned & refactored code, added generics, builders, iterator, and a couple of minor performance improvements.
  * 
- * @author Pedro Oliveira (http://www.cpdomina.net)
+ * @author Pedro Oliveira (http://www.cpdomina.net), original by Danny Sleator (sleator@cs.cmu.edu)
  *
  * @param <T>
  */
