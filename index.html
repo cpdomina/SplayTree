@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Splaytree by cpdomina</title>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Splaytree</h1>
+        <p>Top-Down Splay Tree Java implementation</p>
+        <p class="view"><a href="https://github.com/cpdomina/SplayTree">View the Project on GitHub <small>cpdomina/SplayTree</small></a></p>
+        <ul>
+          <li><a href="https://github.com/cpdomina/SplayTree/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/cpdomina/SplayTree/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/cpdomina/SplayTree">Fork On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Splay Tree</h1>
+
+<p>Top-Down <a href="http://en.wikipedia.org/wiki/Splay_tree">Splay Tree</a> Java implementation. Splay Trees are self-adjusting binary search trees with the additional property that recently accessed elements are quickly retrieved.</p>
+
+<p>Largely based on the implementation by <a href="http://www.link.cs.cmu.edu/splay/">Danny Sleator</a>, available on public domain.
+Cleaned &amp; refactored code, added generics, builders, iterator, and a couple of minor performance improvements.</p>
+
+<h3>Usage</h3>
+
+<pre><code>SplayTree&lt;Integer&gt; t = SplayTree.create(1,0,2,4,3);
+
+assert t.findMin() == 0;
+assert t.findMax() == 4;
+assert t.contains(2) == true;
+
+t.insert(5);
+t.remove(1);
+
+for(int i: t) {
+    System.out.println(i);
+}
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/cpdomina">cpdomina</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
